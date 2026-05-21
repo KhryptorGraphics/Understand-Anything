@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useI18n } from "../contexts/I18nContext";
 
 /**
  * First-visit onboarding overlay.
@@ -11,41 +12,9 @@ import { useState, useEffect } from "react";
 
 const STORAGE_KEY = "ua-onboarding-dismissed-v1";
 
-interface Step {
-  title: string;
-  body: string;
-  hint?: string;
-}
-
-const STEPS: Step[] = [
-  {
-    title: "欢迎进入知识图",
-    body: "你看到的圆点和连线是 Understand-Anything 把这份项目（代码 / wiki）抽出来的实体和关系。每个节点是一个文件、概念、实体或断言。",
-    hint: "5 步以内带你过完核心操作",
-  },
-  {
-    title: "顶部三个视图",
-    body: "Overview 看全貌（力导向图）· Learn 跟随预设学习路径 · Deep Dive 看类型 / 复杂度统计。每个视图回答一种不同的问法。",
-    hint: "切视图前先想清楚自己在问什么",
-  },
-  {
-    title: "搜索 + 点节点",
-    body: "顶部搜索框模糊匹配节点名 / summary / tags。点任意节点 → 右侧详情面板出现 summary + 邻居列表 + Open Article 按钮。",
-    hint: "搜索高亮居中，点节点高亮邻居边",
-  },
-  {
-    title: "Layer 切换 + Tour",
-    body: "顶部 All 旁边的 layer 标签按 index.md 分类只显示部分节点。右侧 Project Tour 自动按编辑者预设顺序导览。",
-    hint: "节点太密看不清就用 Layer，没头绪就启 Tour",
-  },
-  {
-    title: "更多隐藏功能",
-    body: "顶栏还有 Filter（按类型 / 复杂度过滤）、Export（导出图）、Path（找两个节点之间的路径）、Theme（切换主题）。Shift + ? 看完整快捷键。",
-    hint: "需要时再展开，不要一次记完",
-  },
-];
-
 export default function OnboardingOverlay() {
+  const { t } = useI18n();
+  const STEPS = t.onboarding.steps;
   const [stepIdx, setStepIdx] = useState(0);
   const [open, setOpen] = useState(false);
 
@@ -77,12 +46,13 @@ export default function OnboardingOverlay() {
         if (e.target === e.currentTarget) dismiss(false);
       }}
     >
+      <style>{KEYFRAMES}</style>
       <div style={cardStyle}>
         <div style={tagStyle}>
           <span style={numStyle}>0{stepIdx + 1}</span>
           <span> / 0{STEPS.length}</span>
           <span style={dotStyle} />
-          <span>UNDERSTAND-ANYTHING · 入门</span>
+          <span>{t.onboarding.header}</span>
         </div>
 
         <h2 style={titleStyle}>{step.title}</h2>
@@ -113,7 +83,7 @@ export default function OnboardingOverlay() {
             onClick={() => dismiss(true)}
             style={{ ...btnStyle, ...btnGhostStyle }}
           >
-            不再显示
+            {t.onboarding.skipForever}
           </button>
           <div style={{ flex: 1 }} />
           {!isFirst && (
@@ -122,7 +92,7 @@ export default function OnboardingOverlay() {
               onClick={() => setStepIdx(stepIdx - 1)}
               style={{ ...btnStyle, ...btnGhostStyle }}
             >
-              上一步
+              {t.onboarding.prev}
             </button>
           )}
           {!isLast ? (
@@ -131,7 +101,7 @@ export default function OnboardingOverlay() {
               onClick={() => setStepIdx(stepIdx + 1)}
               style={{ ...btnStyle, ...btnPrimaryStyle }}
             >
-              下一步
+              {t.onboarding.next}
             </button>
           ) : (
             <button
@@ -139,7 +109,7 @@ export default function OnboardingOverlay() {
               onClick={() => dismiss(true)}
               style={{ ...btnStyle, ...btnPrimaryStyle }}
             >
-              开始探索
+              {t.onboarding.finish}
             </button>
           )}
         </div>
@@ -147,6 +117,8 @@ export default function OnboardingOverlay() {
     </div>
   );
 }
+
+const KEYFRAMES = `@keyframes ua-fade-in { from { opacity: 0 } to { opacity: 1 } }`;
 
 // ----- styles (inline 避免依赖 css 文件) -----
 

@@ -267,6 +267,40 @@ export const zhTW = {
   pathFinder: {
     title: "尋找節點間路徑 (P)",
   },
+  onboarding: {
+    header: "UNDERSTAND-ANYTHING · 入門",
+    skipForever: "不再顯示",
+    prev: "上一步",
+    next: "下一步",
+    finish: "開始探索",
+    steps: [
+      {
+        title: "歡迎進入知識圖",
+        body: "你看到的圓點和連線是 Understand-Anything 把這份專案（程式碼 / wiki）抽出來的實體和關係。每個節點是一個檔案、概念、實體或斷言。",
+        hint: "5 步以內帶你過完核心操作",
+      },
+      {
+        title: "頂部三個視圖",
+        body: "Overview 看全貌（力導向圖）· Learn 跟隨預設學習路徑 · Deep Dive 看類型 / 複雜度統計。每個視圖回答一種不同的問法。",
+        hint: "切視圖前先想清楚自己在問什麼",
+      },
+      {
+        title: "搜尋 + 點節點",
+        body: "頂部搜尋框模糊匹配節點名 / summary / tags。點任意節點 → 右側詳情面板出現 summary + 鄰居列表 + Open Article 按鈕。",
+        hint: "搜尋高亮置中，點節點高亮鄰居邊",
+      },
+      {
+        title: "Layer 切換 + Tour",
+        body: "頂部 All 旁邊的 layer 標籤按 index.md 分類只顯示部分節點。右側 Project Tour 自動按編輯者預設順序導覽。",
+        hint: "節點太密看不清就用 Layer，沒頭緒就啟 Tour",
+      },
+      {
+        title: "更多隱藏功能",
+        body: "頂欄還有 Filter（按類型 / 複雜度過濾）、Export（匯出圖）、Path（找兩個節點之間的路徑）、Theme（切換主題）。Shift + ? 看完整快捷鍵。",
+        hint: "需要時再展開，不要一次記完",
+      },
+    ],
+  },
 };
 
 export default zhTW;

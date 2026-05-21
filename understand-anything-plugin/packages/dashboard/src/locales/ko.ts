@@ -267,6 +267,40 @@ edgeLabels: {
   pathFinder: {
     title: "노드 간 경로 찾기 (P)",
   },
+  onboarding: {
+    header: "UNDERSTAND-ANYTHING · 시작하기",
+    skipForever: "다시 보지 않기",
+    prev: "이전",
+    next: "다음",
+    finish: "탐색 시작",
+    steps: [
+      {
+        title: "지식 그래프에 오신 것을 환영합니다",
+        body: "보이는 점과 선은 Understand-Anything이 이 프로젝트(코드 / 위키)에서 추출한 엔티티와 관계입니다. 각 노드는 파일, 개념, 엔티티 또는 진술을 나타냅니다.",
+        hint: "5단계로 핵심 조작을 살펴봅니다",
+      },
+      {
+        title: "상단의 세 가지 뷰",
+        body: "Overview는 전체 모습(포스 디렉티드), Learn은 미리 정의된 학습 경로, Deep Dive는 타입 / 복잡도 통계를 보여줍니다. 각 뷰는 서로 다른 질문에 답합니다.",
+        hint: "전환하기 전에 무엇을 묻고 싶은지 정하세요",
+      },
+      {
+        title: "검색 + 노드 클릭",
+        body: "상단 검색창은 노드 이름 / summary / 태그를 퍼지 매칭합니다. 노드를 클릭하면 오른쪽 패널에 summary, 이웃 목록, Open Article 버튼이 나타납니다.",
+        hint: "검색은 노드를 중앙 정렬·강조하고, 클릭은 인접 엣지를 강조합니다",
+      },
+      {
+        title: "Layer 전환 + Project Tour",
+        body: "상단 All 옆의 layer 탭은 index.md를 기반으로 한 카테고리만 표시합니다. 오른쪽의 Project Tour는 편집자가 설정한 순서대로 안내합니다.",
+        hint: "노드가 너무 빽빽하면 Layer, 시작점이 없으면 Tour를 사용하세요",
+      },
+      {
+        title: "숨겨진 추가 기능",
+        body: "상단 바에는 Filter(타입 / 복잡도로 필터링), Export(그래프 내보내기), Path(두 노드 사이 경로 찾기), Theme(테마 전환)도 있습니다. Shift + ?를 누르면 전체 키보드 단축키를 볼 수 있습니다.",
+        hint: "필요할 때 펼쳐 보면 됩니다. 한 번에 다 외울 필요는 없습니다",
+      },
+    ],
+  },
 };
 
 export default ko;

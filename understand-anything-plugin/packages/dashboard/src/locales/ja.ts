@@ -267,6 +267,40 @@ export const ja = {
   pathFinder: {
     title: "ノード間のパスを検索 (P)",
   },
+  onboarding: {
+    header: "UNDERSTAND-ANYTHING · はじめに",
+    skipForever: "次回から表示しない",
+    prev: "前へ",
+    next: "次へ",
+    finish: "探索を始める",
+    steps: [
+      {
+        title: "知識グラフへようこそ",
+        body: "表示されているノードとエッジは、Understand-Anything がこのプロジェクト（コード / wiki）から抽出したエンティティと関係です。各ノードはファイル、概念、エンティティ、または記述を表します。",
+        hint: "5 ステップで主要な操作を確認します",
+      },
+      {
+        title: "上部の 3 つのビュー",
+        body: "Overview は全体像（力学的レイアウト）、Learn はあらかじめ用意された学習パス、Deep Dive はタイプ / 複雑度の統計を表示します。それぞれ異なる問いに答えるためのビューです。",
+        hint: "切り替える前に、何を知りたいかを明確に",
+      },
+      {
+        title: "検索 + ノードクリック",
+        body: "上部の検索ボックスはノード名 / summary / タグをあいまい検索します。任意のノードをクリックすると、右側のパネルに summary、隣接ノード、Open Article ボタンが表示されます。",
+        hint: "検索はノードを中央寄せ・ハイライト、クリックは隣接エッジをハイライトします",
+      },
+      {
+        title: "Layer 切替 + Project Tour",
+        body: "上部 All の隣にある layer タブは index.md に基づいて 1 つのカテゴリだけを表示します。右側の Project Tour は編集者が用意した順序でガイドします。",
+        hint: "ノードが多すぎるときは Layer、入り口がわからないときは Tour",
+      },
+      {
+        title: "その他の隠れた機能",
+        body: "上部バーには Filter（タイプ / 複雑度で絞り込み）、Export（グラフを書き出す）、Path（2 つのノード間のパスを検索）、Theme（テーマ切替）もあります。Shift + ? で全キーボードショートカットを確認できます。",
+        hint: "必要になったときに開けば十分。一度に覚える必要はありません",
+      },
+    ],
+  },
 };
 
 export default ja;
